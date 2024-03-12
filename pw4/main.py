@@ -1,7 +1,8 @@
 
 import math
-from input import get_course_input, get_student_input
+from input import get_course_input, get_student_input, input_mark
 from output import list_course, display_student
+
 
 def main():
     course_count = int(input("Enter number of courses: "))
@@ -11,11 +12,8 @@ def main():
     student_library = get_student_input(student_count)
 
     list_course(course_library)
-    for student in student_library:
-        for course in course_library:
-            mark = float(input(f"Enter mark for {student.get_name()} in {course.get_name()}: "))
-            student.input_mark(course.get_name(), math.floor(mark * 10) / 10)
 
+    input_mark(student_library, course_library) # input mark
     display_student(student_library)
     for student in student_library:
         weighted_sum = student.calculate_weighted_sum_credits_and_mark(course_library)
