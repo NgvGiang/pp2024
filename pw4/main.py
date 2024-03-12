@@ -30,5 +30,7 @@ def main():
         print(f"{student}: {gpa}")
 
 
+if __name__ == "__main__":
+    main()
 
 
